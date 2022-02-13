@@ -16,8 +16,8 @@ class MusicApp extends StatefulWidget {
 class _MusicAppState extends State<MusicApp> {
   Song? currentSong;
   String searchSong = "";
-  Duration _duration = Duration();
-  Duration _position = Duration();
+  Duration _duration = const Duration();
+  Duration _position = const Duration();
   List<Song> songList = [];
   int selectedIndex = -1;
   final TextEditingController _inputSearchMusic = TextEditingController();
@@ -86,9 +86,9 @@ class _MusicAppState extends State<MusicApp> {
             },
             controller: _inputSearchMusic,
             decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.clear),
+                  icon: const Icon(Icons.clear),
                   onPressed: () {
                     /* Clear the search field */
                     _inputSearchMusic.text = "";
@@ -224,11 +224,11 @@ class _MusicAppState extends State<MusicApp> {
                           children: [
                             Text(
                               _position.toString().split('.')[0],
-                              style: TextStyle(fontSize: 10),
+                              style: const TextStyle(fontSize: 10),
                             ),
                             Text(
                                 '${Duration(milliseconds: currentSong!.trackTimeMillis).toString().split('.')[0]}',
-                                style: TextStyle(fontSize: 10)),
+                                style: const TextStyle(fontSize: 10)),
                           ],
                         ),
                       ),

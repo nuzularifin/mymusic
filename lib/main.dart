@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'feature/home/presentation/bloc/home_music_bloc.dart';
-import 'feature/home/presentation/components/home_music_screen.dart';
+import 'package:mymusic/splash_screen.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -15,14 +13,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<HomeMusicBloc>(create: (_) => di.sl<HomeMusicBloc>())
-      ],
-      child: const MaterialApp(
-        title: 'Flutter Demo',
-        home: MusicApp(),
-      ),
+    return const MaterialApp(
+      title: 'Flutter Demo',
+      home: SplashScreen(),
     );
   }
 }
