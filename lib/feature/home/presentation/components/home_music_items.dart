@@ -34,10 +34,15 @@ class _HomeMusicItemsState extends State<HomeMusicItems> {
         child: Row(
           children: [
             Container(
-              height: 60,
               width: 60,
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(widget.cover!))),
+              height: 60,
+              child: Card(
+                semanticContainer: true,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: FadeInImage.assetNetwork(
+                    placeholder: 'assets/images/music_placeholder.png',
+                    image: widget.cover!),
+              ),
             ),
             const SizedBox(width: 10),
             Expanded(

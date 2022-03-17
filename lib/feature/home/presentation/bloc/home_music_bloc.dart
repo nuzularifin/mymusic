@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:mymusic/feature/home/domain/entities/song.dart';
@@ -9,9 +8,8 @@ part 'home_music_state.dart';
 
 class HomeMusicBloc extends Bloc<HomeMusicEvent, HomeMusicState> {
   final GetSongListUsecase getSongListUsecase;
-  final AudioPlayer audioPlayer;
 
-  HomeMusicBloc({required this.getSongListUsecase, required this.audioPlayer})
+  HomeMusicBloc({required this.getSongListUsecase})
       : super(HomeMusicInitial()) {
     on<GetAllSongsEvent>((event, emit) async {
       emit(HomeMusicLoading());
@@ -24,7 +22,6 @@ class HomeMusicBloc extends Bloc<HomeMusicEvent, HomeMusicState> {
     });
 
     on<SelectSongToPlayEvent>((event, emit) async {
-      //? checking selected song before to set selected false;
       event.selectedSong.isSelected = true;
       int index =
           event.songs.indexWhere((element) => element.isSelected == true);

@@ -14,8 +14,7 @@ import 'core/network/network_info.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  sl.registerLazySingleton(
-      () => HomeMusicBloc(getSongListUsecase: sl(), audioPlayer: sl()));
+  sl.registerLazySingleton(() => HomeMusicBloc(getSongListUsecase: sl()));
 
   //! Usecase Injection
   sl.registerLazySingleton(() => GetSongListUsecase(songRepository: sl()));
