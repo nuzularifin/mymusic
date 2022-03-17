@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -13,7 +14,8 @@ import 'core/network/network_info.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  sl.registerLazySingleton(() => HomeMusicBloc(getSongListUsecase: sl()));
+  sl.registerLazySingleton(
+      () => HomeMusicBloc(getSongListUsecase: sl(), audioPlayer: sl()));
 
   //! Usecase Injection
   sl.registerLazySingleton(() => GetSongListUsecase(songRepository: sl()));
@@ -31,4 +33,5 @@ Future<void> init() async {
   sl.registerLazySingleton(() => InternetConnectionChecker());
   sl.registerLazySingleton(() => Dio());
   sl.registerLazySingleton(() => DioService());
+  sl.registerLazySingleton(() => AudioPlayer(mode: PlayerMode.MEDIA_PLAYER));
 }

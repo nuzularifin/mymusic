@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 
-class CustomListTile extends StatefulWidget {
+class HomeMusicItems extends StatefulWidget {
   String? songName;
   String? artisName;
   String? albumName;
   String? cover;
   bool? isSelected;
+  bool? isPlay;
   dynamic onTap;
 
-  CustomListTile(
+  HomeMusicItems(
       {Key? key,
       this.songName,
       this.artisName,
       this.albumName,
       this.cover,
       this.isSelected = false,
+      this.isPlay = false,
       this.onTap})
       : super(key: key);
 
   @override
-  State<CustomListTile> createState() => _CustomListTileState();
+  State<HomeMusicItems> createState() => _HomeMusicItemsState();
 }
 
-class _CustomListTileState extends State<CustomListTile> {
+class _HomeMusicItemsState extends State<HomeMusicItems> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -60,7 +62,7 @@ class _CustomListTileState extends State<CustomListTile> {
               ),
             ),
             const SizedBox(width: 4.0),
-            widget.isSelected!
+            widget.isPlay!
                 ? const Icon(
                     Icons.play_circle,
                     color: Colors.blue,

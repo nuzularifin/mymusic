@@ -1,3 +1,4 @@
+import 'package:mymusic/feature/home/data/model/song_model.dart';
 import 'package:mymusic/feature/home/domain/entities/song.dart';
 
 class Result {
@@ -9,9 +10,9 @@ class Result {
   Result.fromJson(Map<String, dynamic> json) {
     resultCount = json['resultCount'];
     if (json['results'] != null) {
-      result = <Song>[];
+      result = <SongModel>[];
       json['results'].forEach((v) {
-        result!.add(Song.fromJson(v));
+        result!.add(SongModel.fromJson(v));
       });
     }
   }
@@ -20,7 +21,8 @@ class Result {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['resultCount'] = resultCount;
     if (result != null) {
-      data['result'] = result!.map((v) => v.toJson()).toList();
+      data['result'] =
+          result!.map((v) => SongModel.fromJson(v.toJson())).toList();
     }
     return data;
   }
