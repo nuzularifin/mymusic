@@ -33,7 +33,7 @@ class _HomeMusicItemsState extends State<HomeMusicItems> {
         padding: const EdgeInsets.all(8),
         child: Row(
           children: [
-            Container(
+            SizedBox(
               width: 60,
               height: 60,
               child: Card(
